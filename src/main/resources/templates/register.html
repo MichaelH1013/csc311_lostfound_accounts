@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register - Campus Lost &amp; Found</title>
+  <style>
+    body  { font-family: Arial, sans-serif; margin: 24px; }
+    h1    { color: green; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+  <h1>Campus Lost &amp; Found</h1>
+  <h2>Create an account</h2>
+
+  <p class="error" th:if="${error}" th:text="${error}"></p>
+
+  <form th:action="@{/register}" method="post">
+    <p><input type="text" name="username" placeholder="Username" th:value="${username}" required></p>
+    <p><input type="password" name="password" placeholder="Password" required></p>
+    <button type="submit">Register</button>
+  </form>
+
+  <p>Already have an account? <a th:href="@{/login}">Sign in</a></p>
+</body>
+</html>
